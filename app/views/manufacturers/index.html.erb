@@ -1,9 +1,7 @@
 <h1>All Manufacturers</h1>
 
 <ul>
-
-<% @manufacturers.each do |m| %>
-  <li> <%= link_to m.name, manufacturer_path(m) %> from <%= m.country %> </li>
-<% end %>
-
+  <% @manufacturers.each do |m| %>
+    <li> <%= link_to m.name, manufacturer_path(m) %> from <%= m.country %> </li>
+  <% end %>
 </ul>

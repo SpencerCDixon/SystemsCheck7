@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :manufacturers do
-    resources :cars
+  resources :manufacturers, only: [:create, :new, :index, :show] do
+    resources :cars, only: [:create, :new]
   end
 end

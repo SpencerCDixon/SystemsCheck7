@@ -8,11 +8,11 @@ class CarsController < ApplicationController
     @manufacturer = Manufacturer.find(params[:manufacturer_id])
     @car.manufacturer_id = @manufacturer.id
 
-    if @car.save!
+    if @car.save
       flash[:notice] = "Successfully created a new car"
-      @cars = cars.where(id: manufacturer.id)
       redirect_to manufacturer_path(@manufacturer)
     else
+      @cars = @manufacturer.cars.all
       render 'manufacturers/show'
     end
   end

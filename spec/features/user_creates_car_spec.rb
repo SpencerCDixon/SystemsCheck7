@@ -16,6 +16,7 @@ feature "user can create a new car thats associated with a manufacturer" do
 
   scenario "user fills incorrect data" do
     manufacturer = FactoryGirl.create(:manufacturer)
+    FactoryGirl.build(:car)
     visit manufacturer_path(manufacturer)
 
     click_on 'Create Car'
