@@ -9,9 +9,9 @@
 <body>
 
 <% flash.each do |name, msg| %>
-<div class="alert-box <%= name %>">
-  <%= msg %>
-</div>
+  <div class="alert-box <%= name %>">
+    <%= msg %>
+  </div>
 <% end %>
 
 <%= yield %>

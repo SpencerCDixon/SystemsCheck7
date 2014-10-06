@@ -19,6 +19,12 @@ class ManufacturersController < ApplicationController
     @manufacturers = Manufacturer.all
   end
 
+  def show
+    @manufacturer = Manufacturer.find(params[:id])
+    @car = Car.new
+    @cars = @manufacturer.cars.all
+  end
+
   private
 
   def manufacturer_params

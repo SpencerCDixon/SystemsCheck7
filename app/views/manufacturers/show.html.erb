@@ -1,1 +1,48 @@
-<h1>Manufacturer Created!</h1>
+<h1> <%= @manufacturer.name %> </h1>
+
+<%= form_for [@manufacturer, @car] do |f| %>
+
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited
+        this car from being saved:</h2>
+      <ul>
+        <% @car.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </p>
+
+  <p>
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </p>
+
+  <p>
+    <%= f.label :mileage %><br>
+    <%= f.text_field :mileage %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+
+  <%= f.submit 'Create Car' %>
+
+<% end %>
+
+<h1>All Cars For <%= @manufacturer.name %> </h1>
+<ul>
+  <% @cars.each do |c| %>
+    <li>
+      Color: <%= c.color %>, Year: <%= c.year %>, Milage <%= c.mileage %>, Desc: <%= c.description %>
+    </li>
+  <% end %>
+</ul>
